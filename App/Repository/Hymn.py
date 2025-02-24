@@ -6,7 +6,7 @@ from sqlalchemy.orm import Session
 
  
 def add_hymn(request,db:Session):
-    createHymn=models.Hymn(Title=request.title,lyrics=request.lyrics)
+    createHymn=models.Hymn(Title=request.title)
     db.add(createHymn)
     db.commit() 
     db.refresh(createHymn)
