@@ -2,7 +2,7 @@ from pydantic import BaseModel
 from typing import List
 
 class LyricsCreate(BaseModel):
-    position:str
+    position:int
     text:str
     type:str
     
