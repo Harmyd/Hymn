@@ -16,7 +16,7 @@ def add_hymn(request,db:Session):
             hymn_id=createHymn.id,
             type = lyrics.type,
             text=lyrics.text,
-            position=lyrics.position
+            Position=lyrics.position
         )
         db.add(new_lyrics)
     
