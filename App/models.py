@@ -1,18 +1,16 @@
 from sqlalchemy import Column,Integer,String,ForeignKey
-from .databases import base
+from .databases import Base
 from sqlalchemy.orm import relationship
 
 
-class Hymn(base):
+class Hymn(Base):
     __tablename__="Hymn"
     id=Column(Integer,primary_key=True,index=True)
     Title = Column(String)
 
-    lyrics = relationship("Lyrics",back_populates="Hymn")
+    lyrics = relationship("Lyrics",back_populates="hymn")
 
-
-
-class Lyrics(base):
+class Lyrics(Base):
     __tablename__="Lyrics"
     id=Column(Integer,primary_key=True,index=True)
     hymn_id=Column(Integer,ForeignKey("Hymn.id"))
@@ -20,6 +18,6 @@ class Lyrics(base):
     text=Column(String,nullable=False)
     Position=Column(Integer,nullable=False)
 
-    Hymn=relationship("Hymn",back_populates="Lyrics")
+    Hymn=relationship("Hymn",back_populates="lyrics")
 
 
