@@ -6,7 +6,7 @@ from sqlalchemy.orm import relationship
 class Hymn(Base):
     __tablename__="Hymn"
     id=Column(Integer,primary_key=True,index=True)
-    Title = Column(String)
+    title = Column(String)
 
     lyrics = relationship("Lyrics",back_populates="hymn")
 
