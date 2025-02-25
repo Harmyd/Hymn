@@ -6,7 +6,7 @@ from sqlalchemy.orm import Session
 
  
 def add_hymn(request,db:Session):
-    createHymn=models.Hymn(Title=request.title)
+    createHymn=models.Hymn(title=request.title)
     db.add(createHymn)
     db.commit() 
     db.refresh(createHymn)
@@ -30,8 +30,8 @@ def Edit_hymn(id:int,request,db:Session):
     if not Edit_Hymn:
         raise HTTPException(status_code=status.HTTP_404_NOT_FOUND,detail=f"The hymn with the id {id} is not found")
     #check if the Title was given 
-    if Edit_hymn.Title:
-        Edit_Hymn.Title = request.title
+    if Edit_hymn.title:
+        Edit_Hymn.title = request.title
     #loop through the lyrics list 
     for lyrics in request.lyrics:
         #check if the lyrics is already existing in the database
