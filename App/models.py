@@ -18,6 +18,6 @@ class Lyrics(Base):
     text=Column(String,nullable=False)
     Position=Column(Integer,nullable=False)
 
-    Hymn=relationship("Hymn",back_populates="lyrics")
+    hymn=relationship("Hymn",back_populates="lyrics")
 
 
