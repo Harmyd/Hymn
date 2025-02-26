@@ -11,7 +11,9 @@ Router=APIRouter(
 
 @Router.post('/',status_code=status.HTTP_201_CREATED)
 def add_hymn(request:schemas.HymnCreate,db:Session=Depends(get_db)):
-    return Hymn.add_hymn(request,db)
+    result= Hymn.add_hymn(request,db)
+    print ("Returned Data:", result)
+    return result
     
 
 @Router.put('/{id}',status_code=status.HTTP_200_OK)
