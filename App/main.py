@@ -11,9 +11,6 @@ models.Base.metadata.create_all(engine)
 port = int(os.environ.get("PORT", "8000"))
 
 
-database_url=os.environ.get("DATABASE_URL",'sqlite:///blog.db')
-
-
 @app.get("/")
 def read_root():
     return {"message": "welcome"}
