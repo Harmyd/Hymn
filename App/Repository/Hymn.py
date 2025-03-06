@@ -52,6 +52,11 @@ def Edit_hymn(id:int,request,db:Session):
     db.refresh(Edit_Hymn)
     return "Updated"
 
+def get_hymn(id,db:Session):
+    hymn=db.query(models.Hymn).filter(models.Hymn.id==id).first()
+    if not hymn:
+        raise HTTPException(status_code=status.HTTP_404_NOT_FOUND,detail=f"The hymn with {id} does not exist")
+    return hymn
 
 def delete_Hymn(id,db:Session):
     Delete_hymn=db.query(models.Hymn).filter(models.Hymn.id==id).first()

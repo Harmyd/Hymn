@@ -22,6 +22,9 @@ def add_hymn(request:schemas.HymnCreate,db:Session=Depends(get_db)):
 def edit_hymn(id,request:schemas.HymnCreate,db:Session=Depends(get_db)):
    return Hymn.Edit_hymn(id,request,db)
 
+@Router.get('/{id}',status_code=status.HTTP_200_OK)
+def get_hymn(id,db:Session=Depends(get_db)):
+    return Hymn.get_hymn(id,db)
 
 @Router.delete('/{id}',status_code=status.HTTP_200_OK)
 def delete(id,db:Session=Depends(get_db)):
