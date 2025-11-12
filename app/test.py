@@ -34,6 +34,7 @@ try:
     print("saved")
 except Exception as e:
     db.rollback()
+    print(f"Error occured:{e}")
 finally:
     db.close()
         

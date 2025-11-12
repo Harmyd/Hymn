@@ -1,9 +1,10 @@
 from fastapi import FastAPI
-from .database import Base,engine
+from database import Base,engine
 import os
 
 
 Base.metadata.create_all(engine)
+print("Database Created")
 port=int(os.environ.get("PORT","8000"))
 
 app = FastAPI()
