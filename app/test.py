@@ -1,6 +1,6 @@
 import json
-from database import sessionlocal
-from models import Hymn,Lyrics
+from app.database import sessionlocal
+from app.models import Hymn,Lyrics
 
 
 #loading the json file

@@ -1,8 +1,8 @@
 from fastapi import FastAPI
-from database import Base,engine
+from app.database import Base,engine
 import os
 
-
+print("Creating tables...")
 Base.metadata.create_all(engine)
 print("Database Created")
 port=int(os.environ.get("PORT","8000"))
