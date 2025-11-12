@@ -1,10 +1,10 @@
 import json
-from .database import sessionlocal
-from .models import Hymn,Lyrics
+from database import sessionlocal
+from models import Hymn,Lyrics
 
 
 #loading the json file
-with open("Utils/hymns_with_authors.json",encoding="utf-8") as f:
+with open("hymns_with_authors.json",encoding="utf-8") as f:
     #convert to dictionary
     data=json.load(f)
     #print (data["hymns"].items())
@@ -31,6 +31,7 @@ try:
             new_hymn.lyrics.append(new_lyrics)
         db.add(new_hymn)
     db.commit()
+    print("saved")
 except Exception as e:
     db.rollback()
 finally:
